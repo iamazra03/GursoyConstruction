@@ -570,6 +570,11 @@ a:hover {
   justify-items: center; 
 }
 
+@media (max-width: 480px) {
+  .values-grid {
+    grid-template-columns: 1fr; /* Mobilde tek sütun */
+  }
+}
 
 .value-item {
     text-align: center;
