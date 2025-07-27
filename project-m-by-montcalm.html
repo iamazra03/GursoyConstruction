@@ -579,6 +579,51 @@
                     padding: 1rem 0;
                 }
             }
+            @media (max-width: 480px) {
+            .info-grid {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .info-item {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .info-label {
+                font-weight: bold;
+                margin-bottom: 0.2rem;
+            }
+
+            .info-value {
+                font-size: 0.95rem;
+            }
+
+            .project-subtitle {
+                font-size: 1rem;
+                line-height: 1.4;
+            }
+
+            .description-content p {
+                font-size: 0.95rem;
+                line-height: 1.5;
+            }
+            }
+            .description-content {
+            word-break: break-word;
+            line-height: 1.6;
+            }
+
+            @media (max-width: 480px) {
+            .description-content {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            }
+            }
+
+
         }
     </style>
 </head>
