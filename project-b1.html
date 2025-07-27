@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B1 Building - Gursoy Construction Ltd</title>
+    <link rel="icon" href="logo.ico" type="image/x-icon" />
+    <meta name="description" content="B1 Building - Innovative workspace with transparent materials, bold colors and four-storey winter garden in Greenwich">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <style>
+        .project-detail {
+            padding-top: 120px;
+            min-height: 100vh;
+        }
+        
+        .project-header {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: white;
+            padding: 4rem 0;
+            margin-bottom: 4rem;
+        }
+        
+        .project-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .project-subtitle {
+            font-size: 1.2rem;
+            text-align: center;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .breadcrumb {
+            background: #f8fafc;
+            padding: 1rem 0;
+            margin-bottom: 2rem;
+        }
+        
+        .breadcrumb-nav {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .breadcrumb-nav a {
+            color: var(--primary-blue);
+            text-decoration: none;
+        }
+        
+        .breadcrumb-nav a:hover {
+            text-decoration: underline;
+        }
+        
+        .breadcrumb-separator {
+            color: #6b7280;
+        }
+        
+        .project-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+        
+        .project-info {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            height: fit-content;
+        }
+        
+        .info-section {
+            margin-bottom: 2rem;
+        }
+        
+        .info-title {
+            color: var(--primary-blue);
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #e5e7eb;
+            padding-bottom: 0.5rem;
+        }
+        
+        .info-grid {
+            display: grid;
+            gap: 0.8rem;
+        }
+        
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #f3f4f6;
+        }
+        
+        .info-label {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+        
+        .info-value {
+            color: var(--text-light);
+            text-align: right;
+        }
+        
+        .gallery-section {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        .gallery-header {
+            padding: 1.5rem;
+            background: var(--primary-blue);
+            color: white;
+        }
+        
+        .gallery-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin: 0;
+        }
+        
+        .image-gallery {
+            padding: 1.5rem;
+        }
+        
+        .main-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .main-image:hover {
+            transform: scale(1.02);
+        }
+        
+        .thumbnail-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+            gap: 0.5rem;
+        }
+        
+        .thumbnail {
+            width: 100%;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 4px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .thumbnail:hover,
+        .thumbnail.active {
+            border-color: var(--primary-blue);
+            transform: scale(1.05);
+        }
+        
+        .description-section {
+            grid-column: 1 / -1;
+            background: white;
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            margin-top: 2rem;
+        }
+        
+        .description-title {
+            color: var(--primary-blue);
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .description-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-light);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            background: var(--primary-blue);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin: 2rem 0;
+        }
+        
+        .back-button:hover {
+            background: var(--secondary-blue);
+            transform: translateY(-2px);
+            color: white;
+        }
+        
+        .back-arrow {
+            margin-right: 0.5rem;
+        }
+        
+        .image-modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+        
+        .modal-content {
+            display: block;
+            margin: auto;
+            max-width: 90%;
+            max-height: 90%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 2001;
+        }
+        
+        .close-modal:hover {
+            opacity: 0.7;
+        }
+        
+        @media (max-width: 768px) {
+            .project-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .project-title {
+                font-size: 2rem;
+            }
+            
+            .thumbnail-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .main-image {
+                height: 250px;
+            }
+            /* Footer genel ayarları */
+            .footer {
+                background-color: #003366;
+                color: #fff;
+                padding: 3rem 0 1rem;
+                font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            }
+
+            /* Footer içerik grid yapısı */
+            .footer-content {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 2rem;
+                margin-bottom: 2rem;
+            }
+
+            /* Başlıklar */
+            .footer-section h3,
+            .footer-section h4 {
+                margin-bottom: 1rem;
+                font-weight: 600;
+            }
+
+            /* Liste düzeni */
+            .footer-section ul {
+                list-style: none;
+                padding-left: 0;
+                margin: 0;
+            }
+
+            .footer-section ul li {
+                margin-bottom: 0.5rem;
+            }
+
+            /* Linkler */
+            .footer-section a {
+                color: #fff;
+                opacity: 0.8;
+                text-decoration: none;
+                transition: opacity 0.3s ease;
+            }
+
+            .footer-section a:hover {
+                opacity: 1;
+            }
+
+            /* Footer alt kısmı */
+            .footer-bottom {
+                border-top: 1px solid rgba(255, 255, 255, 0.2);
+                padding-top: 1rem;
+                text-align: center;
+                opacity: 0.8;
+                font-size: 0.9rem;
+            }
+
+            /* Logo ve şirket ismi yan yana */
+            .logo-name {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            /* Logo boyutu ve margin */
+            .footer-logo {
+                max-width: 100px;
+                height: auto;
+                margin-bottom: 0;
+            }
+
+            /* Şirket ismi */
+            .logo-name h3 {
+                margin: 0;
+                font-size: 1.5rem;
+                font-weight: 700;
+                color: #fff;
+            }
+
+            /* Açıklama alt satırda, logo ve isimden ayrı */
+            .logo-text-block p.footer-description {
+                margin-top: 1rem;
+                max-width: 350px;
+                color: #fff;
+                opacity: 0.85;
+                font-size: 0.95rem;
+                line-height: 1.4;
+            }
+
+            /* Animations */
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            /* Responsive Design */
+            @media (max-width: 768px) {
+                .nav-menu {
+                    position: fixed;
+                    top: 80px;
+                    left: -100%;
+                    width: 100%;
+                    height: calc(100vh - 80px);
+                    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+                    transition: var(--transition);
+                    backdrop-filter: blur(10px);
+                    z-index: 999;
+                }
+
+                .nav-menu.active {
+                    left: 0;
+                }
+
+                .nav-list {
+                    flex-direction: column;
+                    padding: 3rem 2rem;
+                    gap: 2rem;
+                }
+
+                .nav-link {
+                    font-size: 1.2rem;
+                    padding: 1rem 0;
+                    border-bottom: 1px solid rgba(30, 58, 138, 0.1);
+                }
+
+                .nav-toggle {
+                    display: flex;
+                }
+
+                .nav-toggle.active .nav-toggle-bar:nth-child(1) {
+                    transform: rotate(45deg) translate(5px, 5px);
+                }
+
+                .nav-toggle.active .nav-toggle-bar:nth-child(2) {
+                    opacity: 0;
+                }
+
+                .nav-toggle.active .nav-toggle-bar:nth-child(3) {
+                    transform: rotate(-45deg) translate(7px, -6px);
+                }
+
+                /* Hero responsive */
+                .hero-title {
+                    font-size: 2.5rem;
+                }
+
+                .hero-subtitle {
+                    font-size: 1.2rem;
+                }
+
+                .hero-cta {
+                    font-size: 1.1rem;
+                    padding: 15px 35px;
+                }
+
+                /* Section responsive */
+                .section-title {
+                    font-size: 2rem;
+                }
+
+                .intro-content h2 {
+                    font-size: 2rem;
+                }
+
+                .intro-content p {
+                    font-size: 1.1rem;
+                }
+
+                /* Grid responsive */
+                .services-grid {
+                    grid-template-columns: 1fr;
+                    gap: 2rem;
+                }
+
+                .projects-grid {
+                    grid-template-columns: 1fr;
+                    gap: 2rem;
+                }
+
+                .values-grid {
+                    grid-template-columns: 1fr;
+                    gap: 2rem;
+                }
+
+                .services-list {
+                    grid-template-columns: 1fr;
+                }
+
+                /* Contact responsive */
+                .contact-content {
+                    grid-template-columns: 1fr;
+                    gap: 2rem;
+                }
+
+                .contact-info {
+                    grid-template-columns: 1fr;
+                }
+
+                /* Footer responsive */
+                .footer-content {
+                    grid-template-columns: 1fr;
+                    text-align: center;
+                }
+
+                .logo-name {
+                    justify-content: center;
+                }
+
+                /* Padding adjustments for mobile */
+                .section:not(.hero-section) {
+                    padding: 3rem 0;
+                }
+
+                .services-overview, .values {
+                    padding: 2rem;
+                }
+
+                .service-category {
+                    padding: 2rem;
+                }
+
+                .project-content {
+                    padding: 2rem;
+                }
+            }
+
+            /* Tablet responsive */
+            @media (max-width: 1024px) and (min-width: 769px) {
+                .hero-title {
+                    font-size: 3rem;
+                }
+
+                .services-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+
+                .projects-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+
+                .values-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+            }
+
+            /* Large screen optimizations */
+            @media (min-width: 1400px) {
+                .container {
+                    max-width: 1400px;
+                }
+
+                .hero-title {
+                    font-size: 4.5rem;
+                }
+
+                .hero-subtitle {
+                    font-size: 1.8rem;
+                }
+
+                .section-title {
+                    font-size: 3rem;
+                }
+
+                .services-grid {
+                    grid-template-columns: repeat(3, 1fr);
+                }
+
+                .projects-grid {
+                    grid-template-columns: repeat(3, 1fr);
+                }
+
+                .values-grid {
+                    grid-template-columns: repeat(4, 1fr);
+                }
+            }
+
+            @media (max-width: 480px) {
+                .hero-title {
+                    font-size: 2rem;
+                }
+
+                .hero-subtitle {
+                    font-size: 1rem;
+                }
+
+                .service-category,
+                .project-item,
+                .office,
+                .contact-form {
+                    padding: 1.5rem;
+                }
+
+                .nav-logo h1 {
+                    font-size: 1.2rem;
+                }
+
+                .section {
+                    padding: 1rem 0;
+                }
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Fixed Header -->
+    <header class="header" id="header">
+        <nav class="navbar" id="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <img src="images/logo.png" alt="Gursoy Construction Ltd Logo" class="logo">
+                    <span class="logo-text">Gursoy Construction Ltd</span>
+                </div>
+                <div class="nav-toggle" id="nav-toggle">
+                    <span class="nav-toggle-bar"></span>
+                    <span class="nav-toggle-bar"></span>
+                    <span class="nav-toggle-bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="project-detail">
+        <!-- Breadcrumb -->
+        <div class="breadcrumb">
+            <div class="container">
+                <nav class="breadcrumb-nav">
+                    <a href="index.html">Home</a>
+                    <span class="breadcrumb-separator">›</span>
+                    <a href="index.html#references">References</a>
+                    <span class="breadcrumb-separator">›</span>
+                    <span>B1 Building</span>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Project Header -->
+        <div class="project-header">
+            <div class="container">
+                <h1 class="project-title">B1 Building</h1>
+                <p class="project-subtitle">Innovative workspace featuring transparent materials, bold colors and a verdant four-storey winter garden connecting all levels</p>
+            </div>
+        </div>
+
+        <!-- Project Content -->
+        <div class="container">
+            <a href="index.html#references" class="back-button">
+                <span class="back-arrow">←</span>
+                Back to References
+            </a>
+
+            <div class="project-content">
+                <!-- Project Information -->
+                <div class="project-info">
+                      <!-- Project Description -->
+            <div class="description-section">
+                <div class="description-content">
+                    <p>The architects’ signature use of transparent materials, bold colour and plant life distinguish B1. 
+                        Work space is connected by platforms and stairs winding through a verdant, four-storey winter garden.</p>
+                </div>
+            </div>
+            <br><br>
+
+                    <div class="info-section">
+                        <h3 class="info-title">Project Details</h3>
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <span class="info-label">Project:</span>
+                                <span class="info-value">Greenwich Design District</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Client:</span>
+                                <span class="info-value">Ardmore Construction</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Purpose:</span>
+                                <span class="info-value">Construction of Commercial Office Buildings</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Location:</span>
+                                <span class="info-value">Greenwich, London</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Image Gallery -->
+                <div class="gallery-section">
+                    <div class="gallery-header">
+                        <h3 class="gallery-title">Project Gallery</h3>
+                    </div>
+                    <div class="image-gallery">
+                        <img src="images/3.B1/1.jpg" alt="B1 Building Exterior" class="main-image" id="mainImage">
+                        <div class="thumbnail-grid">
+                            <img src="images/3.B1/1.jpg" alt="1" class="thumbnail active" onclick="changeMainImage(this)">
+                            <img src="images/3.B1/2.jpg" alt="2" class="thumbnail" onclick="changeMainImage(this)">
+                            <img src="images/3.B1/3.jpg" alt="3" class="thumbnail" onclick="changeMainImage(this)">
+                            <img src="images/3.B1/4.jpg" alt="4" class="thumbnail" onclick="changeMainImage(this)">
+                            <img src="images/3.B1/5.jpg" alt="5" class="thumbnail" onclick="changeMainImage(this)">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+          
+        </div>
+    </main>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="image-modal">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        function changeMainImage(thumbnail) {
+            const mainImage = document.getElementById('mainImage');
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            
+            thumbnails.forEach(thumb => thumb.classList.remove('active'));
+            thumbnail.classList.add('active');
+            
+            mainImage.src = thumbnail.src;
+            mainImage.alt = thumbnail.alt;
+        }
+        
+        document.getElementById('mainImage').addEventListener('click', function() {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            
+            modal.style.display = 'block';
+            modalImg.src = this.src;
+        });
+        
+        function closeModal() {
+            document.getElementById('imageModal').style.display = 'none';
+        }
+        
+        window.addEventListener('click', function(event) {
+            const modal = document.getElementById('imageModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+        
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+            <!-- Footer -->
+            <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+
+            <!-- Logo ve Şirket İsmi Yan Yana, Açıklama Alt Satırda -->
+            <div class="footer-section logo-text-block">
+                <div class="logo-name">
+                <img src="images/logo.png" alt="Gursoy Construction Ltd Logo" class="footer-logo" />
+                <h3>Gursoy Construction Ltd</h3>
+                </div>
+                <p class="footer-description">
+                Award-winning construction company based in London, building high-end residential and commercial projects with precision and care.
+                </p>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                <li><a href="#home" data-section="home">Home</a></li>
+                <li><a href="#about" data-section="about">About Us</a></li>
+                <li><a href="#services" data-section="services">Services</a></li>
+                <li><a href="#projects" data-section="projects">References</a></li>
+                <li><a href="#contact" data-section="contact">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- İletişim Bilgileri -->
+            <div class="footer-section">
+                <h4>Contact Info</h4>
+                <p><span class="icon">📍</span> UK: +44 7939 931360</p>
+                <p><span class="icon">📞</span> Turkey: +90 216 474 05 56</p>
+                <p><span class="icon">📧</span> ozantaylanseven@gmail.com</p>
+            </div>
+
+            </div>
+
+            <div class="footer-bottom">
+            <p>&copy; 2025 Gursoy Construction Ltd. All rights reserved.</p>
+            </div>
+        </div>
+        </footer>
+</body>
+</html>
