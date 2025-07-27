@@ -1263,3 +1263,37 @@ a:hover {
         padding: 1rem 0;
     }
 }
+/* Taşmayı engelle */
+body, html {
+  overflow-x: hidden;
+}
+
+/* Box sizing tüm elemanlarda */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Uzun metin taşmasın */
+p, h2, h3, li {
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Container genişliği mobil için */
+.container {
+  max-width: 100%;
+  padding: 0 1rem;
+}
+
+/* Flex kutular için */
+.values-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.value-item {
+  flex: 1 1 45%;
+  min-width: 250px;
+}
