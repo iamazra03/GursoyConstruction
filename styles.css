@@ -132,7 +132,7 @@ a:hover {
 }
 
 .logo-text {
-    font-size: 1.2rem; /* Küçük cihazlar için */
+    font-size: 1.2rem; 
     font-weight: bold;
     color: #003366;
     letter-spacing: 0.5px;
@@ -141,7 +141,7 @@ a:hover {
     transition: all 0.3s ease;
 }
 
-/* Mobilde daha da küçült */
+
 @media (max-width: 600px) {
   .logo-text {
     font-size: 1rem;
@@ -398,7 +398,8 @@ a:hover {
     transform: rotate(45deg) translateY(-5px);
   }
 }
-/* Home Intro Section - About Section uyumlu */
+
+/* Home Intro Section */
 .home-intro {
   background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
   padding: 6rem 0;
@@ -447,8 +448,9 @@ a:hover {
     font-size: 1rem;
     padding: 0 10px;
   }
-}
 
+
+}
 
 
 /* About Section */
@@ -477,10 +479,27 @@ a:hover {
     padding: 0 2rem;
 }
 
+@media (max-width: 768px) {
+  .about-content {
+    max-width: 90%;  
+    padding: 0 1rem; 
+  }
+}
+
+
 .about-text {
     margin-bottom: 4rem;
     text-align: center;
 }
+
+@media (max-width: 768px) {
+  .about-text p {
+    font-size: 1rem;      
+    line-height: 1.5;     
+    margin-bottom: 1rem;  
+  }
+}
+
 
 .about-intro {
     font-size: 1.5rem;
@@ -489,6 +508,13 @@ a:hover {
     margin-bottom: 2rem;
     line-height: 1.4;
 }
+
+@media (max-width: 768px) {
+  .about-intro {
+    font-size: 1.2rem;
+  }
+}
+
 
 .about-text p {
     font-size: 1.2rem;
@@ -516,12 +542,22 @@ a:hover {
 .services-list {
     list-style: none;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 320px)); 
     gap: 1.5rem;
     margin-top: 2rem;
+    justify-content: center; 
 }
 
+@media (max-width: 480px) {
+  .services-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+
 .services-list li {
+    max-width: 320px;  
+    width: 100%;       
     padding: 1.5rem;
     background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
     border-radius: 12px;
@@ -530,7 +566,9 @@ a:hover {
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
+    margin: 0 auto;   
 }
+
 
 .services-list li::before {
     content: '';
@@ -550,7 +588,7 @@ a:hover {
 
 .values {
     background: white;
-    padding: 3rem;
+    padding: 3rem 1rem;
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
@@ -577,8 +615,11 @@ a:hover {
 }
 
 .value-item {
+    max-width: 320px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 1.5rem; /* Daha makul padding */
     text-align: center;
-    padding: 2.5rem;
     background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
     border-radius: 16px;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -586,6 +627,7 @@ a:hover {
     overflow: hidden;
     border: 1px solid rgba(30,58,138,0.1);
 }
+
 
 .value-item::before {
     content: '';
@@ -753,15 +795,26 @@ a:hover {
     transition: all 0.3s ease;
     border: 1px solid rgba(49, 151, 149, 0.1);
     display: flex;
-    flex-direction: column !important; /* burada kesin dikey olsun */
+    flex-direction: column !important;
+    max-width: 320px;
+    width: 100%;
+    margin: 0 auto;
 }
+
 
 .references-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
     margin-bottom: 4rem;
 }
+
+@media (max-width: 480px) {
+    .references-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 
 .reference-image {
     height: 280px;
@@ -778,7 +831,7 @@ a:hover {
 }
 
 .reference-image img {
-    width: 100%;
+    width: auto;
     height: 100%;
     object-fit: cover;
     display: block;
