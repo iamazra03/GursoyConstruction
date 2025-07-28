@@ -582,6 +582,21 @@
             body.project-detail .nav-toggle {
             display: none !important;
             }
+
+            .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 70px; /* header yüksekliği */
+            z-index: 1000;
+            background: white; /* üstünde gezinirken görünür olsun */
+            }
+
+            .project-detail {
+            padding-top: 70px; /* header yüksekliği kadar boşluk bırak */
+            }
+
         }
     </style>
 </head>
@@ -618,7 +633,7 @@
             </div>
         </div>
 
-        <body class="project-detail"></body>
+
 
         <!-- Project Header -->
         <div class="project-header">
@@ -677,7 +692,7 @@
                         <h3 class="gallery-title">Project Gallery</h3>
                     </div>
                     <div class="image-gallery">
-                        <img src="images/4.M-by-Montcalm/1.jpg" alt="M by Montcalm Hotel Main View" class="main-image" id="mainImage">
+                        <img src="images/4.M-by-Montcalm/11.jpg" alt="M by Montcalm Hotel Main View" class="main-image" id="mainImage">
                         <div class="thumbnail-grid">
                             <img src="images/4.M-by-Montcalm/1.jpg" alt="1" class="thumbnail active" onclick="changeMainImage(this)">
                             <img src="images/4.M-by-Montcalm/2.jpg" alt="2" class="thumbnail" onclick="changeMainImage(this)">
@@ -689,7 +704,6 @@
                             <img src="images/4.M-by-Montcalm/8.jpg" alt="8" class="thumbnail" onclick="changeMainImage(this)">
                             <img src="images/4.M-by-Montcalm/9.jpg" alt="9" class="thumbnail" onclick="changeMainImage(this)">
                             <img src="images/4.M-by-Montcalm/10.jpg" alt="10" class="thumbnail" onclick="changeMainImage(this)">
-                            <img src="images/4.M-by-Montcalm/11.jpg" alt="11" class="thumbnail" onclick="changeMainImage(this)">
                             <img src="images/4.M-by-Montcalm/12.jpg" alt="12" class="thumbnail" onclick="changeMainImage(this)">
                             <img src="images/4.M-by-Montcalm/13.jpg" alt="13" class="thumbnail" onclick="changeMainImage(this)">
                             <img src="images/4.M-by-Montcalm/14.jpg" alt="14" class="thumbnail" onclick="changeMainImage(this)">
