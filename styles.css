@@ -775,10 +775,13 @@ a:hover {
     background: #ffffff;
 }
 
-.references-content {
-    max-width: 1000px;
-    margin: 0 auto;
+.reference-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
+
 
 .references-intro {
     text-align: center;
