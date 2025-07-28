@@ -852,7 +852,7 @@ a:hover {
 .special-large-img {
   width: 100%;
   height: auto;
-  max-height: 350px; /* İsteğe göre artır/azalt */
+  max-height: 450px; /* İsteğe göre artır/azalt */
   object-fit: cover;
 }
 
