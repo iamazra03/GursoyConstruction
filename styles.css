@@ -849,6 +849,14 @@ a:hover {
     display: block;
 }
 
+.special-large-img {
+  width: 100%;
+  height: auto;
+  max-height: 350px; /* İsteğe göre artır/azalt */
+  object-fit: cover;
+}
+
+
 .reference-content {
     padding: 2rem;
     flex: none;
