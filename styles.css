@@ -595,7 +595,7 @@ a:hover {
     display: flex;            /* Flexbox aktif */
     flex-direction: column;   /* Dikey sıralama */
     align-items: center;      /* Yatayda tam ortala */
-    padding-left: 2rem;
+   
 }
 
 .values h3 {
@@ -614,6 +614,7 @@ a:hover {
   width: 100%;
   max-width: 1100px;  
   box-sizing: border-box;
+  margin: 0 auto;
   
 }
 
