@@ -492,17 +492,11 @@ a:hover {
     text-align: center;
 }
 
-@media (max-width: 768px) {
-  .about-text p {
-    font-size: 1rem;      
-    line-height: 1.5;     
-    margin-bottom: 1rem;  
-  }
-}
+
 
 
 .about-intro {
-    font-size: 1.5rem;
+    font-size: 1rem;
     color: var(--primary-blue);
     font-weight: 700;
     margin-bottom: 2rem;
@@ -515,13 +509,20 @@ a:hover {
   }
 }
 
+@media (max-width: 768px) {
+  .about-text p {
+    font-size: 0.9rem;    
+    line-height: 1.4;     
+    margin-bottom: 1rem;  
+  }
+}
 
-.about-text p {
-    font-size: 1.2rem;
-    color: var(--text-light);
-    line-height: 1.8;
-    max-width: 800px;
-    margin: 0 auto 1.5rem auto;
+@media (max-width: 768px) {
+  .about-text p {
+    font-size: 1rem;      
+    line-height: 1.5;     
+    margin-bottom: 1rem;  
+  }
 }
 
 .services-overview {
