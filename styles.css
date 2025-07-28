@@ -849,12 +849,11 @@ a:hover {
     display: block;
 }
 
-.special-large-img {
-  width: 100%;
-  height: auto;
-  max-height: 450px; /* İsteğe göre artır/azalt */
-  object-fit: cover;
+.b1-reference .reference-image img {
+    height: 350px;
+    object-fit: cover;
 }
+
 
 
 .reference-content {
