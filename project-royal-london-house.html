@@ -32,11 +32,19 @@
             padding-top: var(--header-height);
         }
 
+        html, body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        }
+
+
         .container {
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
+            box-sizing: border-box;
         }
 
         img {
@@ -528,35 +536,33 @@
                 </div>
 
                 <div class="project-sidebar">
-                    <!-- Image Gallery -->
-                    <div class="gallery-section">
-                        <div class="gallery-header">
-                            <h3 class="gallery-title">Project Gallery</h3>
-                        </div>
-                        <div class="image-gallery">
-                            <div class="main-image-container">
-                                <img src="images/4.M-by-Montcalm/11.jpg" alt="M by Montcalm Hotel Main View" class="main-image" id="mainImage">
-                            </div>
-                            <div class="thumbnail-grid">
+                <!-- Image Gallery -->
+                <div class="gallery-section">
+                    <div class="gallery-header">
+                        <h3 class="gallery-title">Project Gallery</h3>
+                    </div>
+                    <div class="image-gallery">
+                        <div class="main-image-container">
                             <img src="images/5.Royal-London-House/7.jpg" alt="Royal London House Main View" class="main-image" id="mainImage">
+                        </div>
                         <div class="thumbnail-grid">
-                            <img src="images/5.Royal-London-House/1.jpg" alt="1" class="thumbnail active" onclick="changeMainImage(this)">
-                            <img src="images/5.Royal-London-House/2.jpg" alt="2" class="thumbnail" onclick="changeMainImage(this)">
-                            <img src="images/5.Royal-London-House/3.jpg" alt="3" class="thumbnail" onclick="changeMainImage(this)">
-                            <img src="images/5.Royal-London-House/4.jpg" alt="4" class="thumbnail" onclick="changeMainImage(this)">
-                            <img src="images/5.Royal-London-House/5.jpg" alt="5" class="thumbnail" onclick="changeMainImage(this)">
-                            <img src="images/5.Royal-London-House/6.jpg" alt="6" class="thumbnail" onclick="changeMainImage(this)">
-                            <img src="images/5.Royal-London-House/8.jpg" alt="8" class="thumbnail" onclick="changeMainImage(this)">
-                            <img src="images/5.Royal-London-House/9.jpg" alt="9" class="thumbnail" onclick="changeMainImage(this)">
-                            <img src="images/5.Royal-London-House/11.jpg" alt="11" class="thumbnail" onclick="changeMainImage(this)">
-                            <img src="images/5.Royal-London-House/12.jpg" alt="12" class="thumbnail" onclick="changeMainImage(this)">
-                            <img src="images/5.Royal-London-House/13.jpg" alt="13" class="thumbnail" onclick="changeMainImage(this)">
-                            <img src="images/5.Royal-London-House/14.jpg" alt="14" class="thumbnail" onclick="changeMainImage(this)">
-                            <img src="images/5.Royal-London-House/15.jpg" alt="15" class="thumbnail" onclick="changeMainImage(this)">
-                            </div>
+                            <img src="images/5.Royal-London-House/1.jpg" alt="Royal London House View 1" class="thumbnail active" onclick="changeMainImage(this)">
+                            <img src="images/5.Royal-London-House/2.jpg" alt="Royal London House View 2" class="thumbnail" onclick="changeMainImage(this)">
+                            <img src="images/5.Royal-London-House/3.jpg" alt="Royal London House View 3" class="thumbnail" onclick="changeMainImage(this)">
+                            <img src="images/5.Royal-London-House/4.jpg" alt="Royal London House View 4" class="thumbnail" onclick="changeMainImage(this)">
+                            <img src="images/5.Royal-London-House/5.jpg" alt="Royal London House View 5" class="thumbnail" onclick="changeMainImage(this)">
+                            <img src="images/5.Royal-London-House/6.jpg" alt="Royal London House View 6" class="thumbnail" onclick="changeMainImage(this)">
+                            <img src="images/5.Royal-London-House/8.jpg" alt="Royal London House View 8" class="thumbnail" onclick="changeMainImage(this)">
+                            <img src="images/5.Royal-London-House/9.jpg" alt="Royal London House View 9" class="thumbnail" onclick="changeMainImage(this)">
+                            <img src="images/5.Royal-London-House/11.jpg" alt="Royal London House View 11" class="thumbnail" onclick="changeMainImage(this)">
+                            <img src="images/5.Royal-London-House/12.jpg" alt="Royal London House View 12" class="thumbnail" onclick="changeMainImage(this)">
+                            <img src="images/5.Royal-London-House/13.jpg" alt="Royal London House View 13" class="thumbnail" onclick="changeMainImage(this)">
+                            <img src="images/5.Royal-London-House/14.jpg" alt="Royal London House View 14" class="thumbnail" onclick="changeMainImage(this)">
+                            <img src="images/5.Royal-London-House/15.jpg" alt="Royal London House View 15" class="thumbnail" onclick="changeMainImage(this)">
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
         </div>
     </main>
