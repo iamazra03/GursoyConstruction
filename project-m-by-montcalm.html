@@ -17,7 +17,6 @@
   --text-dark: #1f2937;
   --text-light: #6b7280;
   --header-height: 80px;
-  --mobile-header-height: 60px;
 }
 
 * {
@@ -41,7 +40,7 @@ body {
   padding: 0 20px;
 }
 
-/* HEADER STİLLERİ */
+/* HEADER STİLLERİ - HAMBURGER MENÜSÜZ */
 .header {
   position: fixed;
   top: 0;
@@ -53,13 +52,12 @@ body {
   z-index: 1000;
   display: flex;
   align-items: center;
+  justify-content: center; /* Logoyu ortala */
 }
 
 .nav-container {
   width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  max-width: 1200px;
   padding: 0 20px;
 }
 
@@ -339,10 +337,6 @@ body {
 
 /* MOBİL UYUMLULUK */
 @media (max-width: 768px) {
-  :root {
-    --header-height: var(--mobile-header-height);
-  }
-  
   .project-content {
     grid-template-columns: 1fr;
     gap: 20px;
